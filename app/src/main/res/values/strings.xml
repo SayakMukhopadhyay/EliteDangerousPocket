@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Elite Dangerous Pocket</string>
+    <string name="menu_pick_date">Pick Date</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="menu_reset_date">Reset Date</string>
+    <string name="menu_home">Home</string>
+    <string name="no_news">No News</string>
+</resources>
