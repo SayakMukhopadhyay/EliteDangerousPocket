@@ -22,9 +22,4 @@ public class HomeActivity extends AppCompatActivity {
         Intent galnetActivity = new Intent(getApplicationContext(), GalnetActivity.class);
         startActivity(galnetActivity);
     }
-
-    public void spinner(View view) {
-        Intent galnetActivity = new Intent(getApplicationContext(), SpinnerActivity.class);
-        startActivity(galnetActivity);
-    }
 }

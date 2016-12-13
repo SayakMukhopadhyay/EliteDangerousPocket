@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import org.jsoup.Jsoup;
@@ -38,12 +39,16 @@ public class GalnetActivity extends AppCompatActivity {
 
     private ArrayList<GalnetNews> galnetNewses;
 
+    private RelativeLayout loadingFragmentContainer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_galnet);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         noNews = (TextView) findViewById(R.id.no_news);
+
+        loadingFragmentContainer = (RelativeLayout) findViewById(R.id.loading_fragment_container);
 
         setSupportActionBar(toolbar);
 
@@ -56,6 +61,7 @@ public class GalnetActivity extends AppCompatActivity {
 
         galnetNewses = new ArrayList<>();
         setRecyclerView();
+
         galnetNewses = fetchNews(dateShown, true);
     }
 
@@ -65,6 +71,10 @@ public class GalnetActivity extends AppCompatActivity {
     }
 
     private ArrayList<GalnetNews> fetchNews(Calendar dateShown, boolean home) {
+
+        loadingFragmentContainer.setVisibility(View.VISIBLE);
+        noNews.setVisibility(View.GONE);
+
         ArrayList<GalnetNews> newsItems = new ArrayList<>();
 
         if (home) {
@@ -88,7 +98,10 @@ public class GalnetActivity extends AppCompatActivity {
                     Elements articles = document.select("div.article");
                     for (Element article : articles) {
                         Element title = article.select("a").first();
+                        //url format
+                        //https://community.elitedangerous.com/galnet/uid/584e956d9657ba7133a749ae
                         String url = "https://community.elitedangerous.com" + title.attr("href");
+                        String uid = url.substring(48);
                         String head = title.text();
                         String date = article.select("p.small").text();
 
@@ -97,7 +110,7 @@ public class GalnetActivity extends AppCompatActivity {
 
                         String mainArticle = body.text().replace("\\n", "\n");
 
-                        galnetNews = new GalnetNews(head, date, mainArticle, url);
+                        galnetNews = new GalnetNews(uid, head, date, mainArticle, url);
                         newsItems.add(galnetNews);
                         Log.d("NewsItem", "News Item Added");
                     }
@@ -110,6 +123,7 @@ public class GalnetActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(Void aVoid) {
                 super.onPostExecute(aVoid);
+                loadingFragmentContainer.setVisibility(View.GONE);
                 if (newsItems.size() == 0) {
                     noNews.setVisibility(View.VISIBLE);
                 } else {
@@ -205,7 +219,6 @@ public class GalnetActivity extends AppCompatActivity {
     }
 
     public void dateSet(int year, int month, int day) {
-//        Toast.makeText(getApplicationContext(), "Date Set for Galnet", Toast.LENGTH_SHORT).show();
         dateShown.set(year, month, day);
 
         galnetNewses = fetchNews(dateShown, false);

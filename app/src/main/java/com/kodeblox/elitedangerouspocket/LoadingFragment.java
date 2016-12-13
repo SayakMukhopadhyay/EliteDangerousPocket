@@ -3,11 +3,14 @@ package com.kodeblox.elitedangerouspocket;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 
-public class SpinnerActivity extends AppCompatActivity {
+public class LoadingFragment extends Fragment {
 
     private AnimatorSet animTriangle;
 
@@ -36,44 +39,55 @@ public class SpinnerActivity extends AppCompatActivity {
     private ImageView triangle23;
     private ImageView triangle24;
 
+    public LoadingFragment() {
+        // Required empty public constructor
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_spinner);
+    }
 
-        setImages();
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        View view = inflater.inflate(R.layout.fragment_loading, container, false);
+
+        setImages(view);
 
         setAnimators();
 
         animTriangle.start();
+
+        return view;
     }
 
-    private void setImages() {
-        triangle1 = (ImageView) findViewById(R.id.imageView1);
-        triangle2 = (ImageView) findViewById(R.id.imageView2);
-        triangle3 = (ImageView) findViewById(R.id.imageView3);
-        triangle4 = (ImageView) findViewById(R.id.imageView4);
-        triangle5 = (ImageView) findViewById(R.id.imageView5);
-        triangle6 = (ImageView) findViewById(R.id.imageView6);
-        triangle7 = (ImageView) findViewById(R.id.imageView7);
-        triangle8 = (ImageView) findViewById(R.id.imageView8);
-        triangle9 = (ImageView) findViewById(R.id.imageView9);
-        triangle10 = (ImageView) findViewById(R.id.imageView10);
-        triangle11 = (ImageView) findViewById(R.id.imageView11);
-        triangle12 = (ImageView) findViewById(R.id.imageView12);
-        triangle13 = (ImageView) findViewById(R.id.imageView13);
-        triangle14 = (ImageView) findViewById(R.id.imageView14);
-        triangle15 = (ImageView) findViewById(R.id.imageView15);
-        triangle16 = (ImageView) findViewById(R.id.imageView16);
-        triangle17 = (ImageView) findViewById(R.id.imageView17);
-        triangle18 = (ImageView) findViewById(R.id.imageView18);
-        triangle19 = (ImageView) findViewById(R.id.imageView19);
-        triangle20 = (ImageView) findViewById(R.id.imageView20);
-        triangle21 = (ImageView) findViewById(R.id.imageView21);
-        triangle22 = (ImageView) findViewById(R.id.imageView22);
-        triangle23 = (ImageView) findViewById(R.id.imageView23);
-        triangle24 = (ImageView) findViewById(R.id.imageView24);
+    private void setImages(View view) {
+        triangle1 = (ImageView) view.findViewById(R.id.imageView1);
+        triangle2 = (ImageView) view.findViewById(R.id.imageView2);
+        triangle3 = (ImageView) view.findViewById(R.id.imageView3);
+        triangle4 = (ImageView) view.findViewById(R.id.imageView4);
+        triangle5 = (ImageView) view.findViewById(R.id.imageView5);
+        triangle6 = (ImageView) view.findViewById(R.id.imageView6);
+        triangle7 = (ImageView) view.findViewById(R.id.imageView7);
+        triangle8 = (ImageView) view.findViewById(R.id.imageView8);
+        triangle9 = (ImageView) view.findViewById(R.id.imageView9);
+        triangle10 = (ImageView) view.findViewById(R.id.imageView10);
+        triangle11 = (ImageView) view.findViewById(R.id.imageView11);
+        triangle12 = (ImageView) view.findViewById(R.id.imageView12);
+        triangle13 = (ImageView) view.findViewById(R.id.imageView13);
+        triangle14 = (ImageView) view.findViewById(R.id.imageView14);
+        triangle15 = (ImageView) view.findViewById(R.id.imageView15);
+        triangle16 = (ImageView) view.findViewById(R.id.imageView16);
+        triangle17 = (ImageView) view.findViewById(R.id.imageView17);
+        triangle18 = (ImageView) view.findViewById(R.id.imageView18);
+        triangle19 = (ImageView) view.findViewById(R.id.imageView19);
+        triangle20 = (ImageView) view.findViewById(R.id.imageView20);
+        triangle21 = (ImageView) view.findViewById(R.id.imageView21);
+        triangle22 = (ImageView) view.findViewById(R.id.imageView22);
+        triangle23 = (ImageView) view.findViewById(R.id.imageView23);
+        triangle24 = (ImageView) view.findViewById(R.id.imageView24);
     }
 
     private void setAnimators() {

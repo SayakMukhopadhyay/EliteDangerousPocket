@@ -16,7 +16,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:orientation="vertical">
 
         <LinearLayout
@@ -29,18 +31,17 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="galnet"
                 app:srcCompat="@mipmap/ic_launcher"
-                tools:ignore="NestedWeights"
-                android:onClick="galnet" />
+                tools:ignore="NestedWeights" />
 
             <ImageButton
                 android:id="@+id/imageButton3"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                app:srcCompat="@mipmap/ic_launcher"
-                android:visibility="visible"
-                android:onClick="spinner" />
+                android:visibility="invisible"
+                app:srcCompat="@mipmap/ic_launcher" />
 
         </LinearLayout>
 
@@ -55,17 +56,17 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="fill_horizontal"
                 android:layout_weight="1"
+                android:visibility="invisible"
                 app:srcCompat="@mipmap/ic_launcher"
-                tools:ignore="NestedWeights"
-                android:visibility="invisible" />
+                tools:ignore="NestedWeights" />
 
             <ImageButton
                 android:id="@+id/imageButton4"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                app:srcCompat="@mipmap/ic_launcher"
-                android:visibility="invisible" />
+                android:visibility="invisible"
+                app:srcCompat="@mipmap/ic_launcher" />
         </LinearLayout>
 
     </LinearLayout>

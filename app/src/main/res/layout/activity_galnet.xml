@@ -27,4 +27,19 @@
         android:text="@string/no_news"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/loading_fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <fragment
+            android:id="@+id/loading_fragment"
+            android:name="com.kodeblox.elitedangerouspocket.LoadingFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout="@layout/fragment_loading" />
+    </RelativeLayout>
+
 </LinearLayout>
