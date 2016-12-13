@@ -23,6 +23,7 @@
             android:name=".GalnetActivity"
             android:label="Galnet News"
             android:screenOrientation="portrait" />
+        <activity android:name=".SpinnerActivity"></activity>
     </application>
 
 </manifest>

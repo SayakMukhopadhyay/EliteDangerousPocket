@@ -39,7 +39,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 app:srcCompat="@mipmap/ic_launcher"
-                android:visibility="invisible" />
+                android:visibility="visible"
+                android:onClick="spinner" />
 
         </LinearLayout>
 
